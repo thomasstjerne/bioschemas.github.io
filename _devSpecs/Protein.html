@@ -103,6 +103,7 @@ mapping:
 - property: associatedWith
   expected_types:
   - MedicalCondition
+  - DataRecord
   - URL
   description: ""
   type: external
@@ -129,6 +130,8 @@ mapping:
 - property: contains
   expected_types:
   - BioChemEntity
+  - DataRecord
+  - URL
   - bioschemas:ProteinAnnotation
   description: ""
   type: bioschemas
@@ -199,14 +202,16 @@ mapping:
     {
       "@type": ["BioChemEntity", "Protein"],
       "description": "Function: Non-receptor tyrosine-protein kinase that plays a role..."
-    }
+}
 - property: enablesMF
   expected_types:
   - CategoryCode
   - PropertyValue
+  - DataRecord
+  - bioschemas:ProteinAnnotation
   description: ""
   type: external
-  type_url: ' http://purl.obolibrary.org/obo/RO_0002327'
+  type_url: 'http://purl.obolibrary.org/obo/RO_0002327'
   bsc_description: "RO:0002327 (enables). GO molecular function enabled by the gene/protein.
     \nRecommended range: BioChemEntity or CategoryCode, ProteinAnnotation if evidence
     should be included."
@@ -351,6 +356,8 @@ mapping:
   expected_types:
   - CategoryCode
   - PropertyValue
+  - DataRecord
+  - bioschemas:ProteinAnnotation
   description: ""
   type: external
   type_url: ' http://purl.obolibrary.org/obo/RO_0002331'
@@ -401,37 +408,34 @@ mapping:
 - property: isContainedIn
   expected_types:
   - BioChemEntity
+  - DataRecord
+  - URL
   description: ""
   type: bioschemas
   type_url: http://bioschemas.org/types/BioChemEntity/#isContainedIn
-  bsc_description: "Indicates a BioChemEntity that this BioChemEntity is (in some
-    sense) part of this BioChemEntity. _Inverse property: containedIn_ \n\n**Bioschemas
-    Protein**: For proteins, it is recommended to at least specify the taxon/organism
-    associated to the described protein. For taxon/organism, it is a good practice
-    to use hasCategoryCode to point to a controlled vacabulary such as NCBI taxon
-    or UniProt Taxonomy. Including as well the GO cellular locations is optional;
-    for cellular locations it is a good practice to use hasCategorryCode to point
-    to a GO Cellular Location term."
+  bsc_description: "Indicates a BioChemEntity that this BioChemEntity is (in some sense) part of this BioChemEntity.
+    _Inverse property: containedIn_. \n\n**Bioschemas Protein**: This property can be used to include GO cellular
+    locations; for cellular locations it is a good practice to use hasCategorryCode to point to a GO Cellular
+    Location term."
   marginality: Recommended
   cardinality: MANY
   controlled_vocab: Any suitable ontology
   example: |-
+    //Protein is part of (isContainedIn) a GO subcellular location
     {
       "@type": ["BioChemEntity", "Protein"],
       "isContainedIn": {
-        "@type": "BioChemEntity",
-        "identifier": "9606",
-        "name": "Homo sapiens",
-        "hasCategoryCode": {
-          "codeValue": "9606",
-          "url": "http://purl.uniprot.org/taxonomy/9606"
-        },
-        "url": "http://www.uniprot.org/taxonomy/9606"
+        "@type": "CategoryCode",
+        "url": "http://purl.obolibrary.org/obo/GO_0016020",
+        "codeValue": "GO:0016020",
+        "name": "membrane"
       }
     }
 - property: isTranslatedFrom
   expected_types:
   - BioChemEntity
+  - DataRecord
+  - URL
   - bioschemas:Gene
   description: ""
   type: external
@@ -462,11 +466,9 @@ mapping:
     is located, or where an action takes place.
   type: ""
   type_url: ""
-  bsc_description: "The location can be refer to a position in a chromosome or sequence
-    or to a physical place where, for instance, a sample is stored. Using additionalType
-    is advised to make the distinction. For instance, FALDO can be used for sequence
-    coordinates. \n\n**_Note_**: The list of Expected Types has been extended as schema.org/location
-    only has Place, PostalAddress and Text."
+  bsc_description: "The location can be refer to a position in a chromosome or sequence or to a physical place where,
+    for instance, a sample is stored. Using additionalType is advised to make the distinction. For proteins,
+    we use PropertyValue. "
   marginality: Optional
   cardinality: MANY
   controlled_vocab: ""
@@ -480,9 +482,7 @@ mapping:
     Inverse property: mainEntity.
   type: ""
   type_url: ""
-  bsc_description: "Link via DataRecord to the main DataRecord representing this entity
-    in a dataset. \n\n**Bioschemas Protein**: Currently not in use; use the [mainEntity](http://bioschemas.org/types/DataRecord/)
-    property from DataRecord instead."
+  bsc_description: "Link via DataRecord to the main DataRecord representing this entity in a dataset. "
   marginality: Optional
   cardinality: MANY
   controlled_vocab: ""
@@ -497,7 +497,7 @@ mapping:
       }
     }
 
-    //Also possible from Protein
+    //Also possible from Protein or any other entity referred to from the Protein, e.g., associated disease
     {
       "@type": ["BioChemEntity", "Protein"],
       "mainEntityOfPage": { "@id": "http://purl.uniprot.org/uniprot/P05519" }

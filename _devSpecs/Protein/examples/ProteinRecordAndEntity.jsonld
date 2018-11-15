@@ -1,0 +1,84 @@
+{
+  "@context": [
+    "http://schema.org",
+    "http://bioschemas.org/context.jsonld"
+  ],
+
+  "@type": "DataRecord",
+  "@id": "http://purl.uniprot.org/uniprot/P00519",
+
+  "identifier": "http://purl.uniprot.org/uniprot/P00519",
+
+  "isPartOf": {
+    "@type": "Dataset",
+    "@id": "http://www.uniprot.org/uniprot"
+  },
+
+  "dateCreated": "1986-07-21",
+  "dateModified": "2017-03-15",
+
+  "distribution": {
+    "@type": "DataDownload",
+    "url": "http://www.uniprot.org/uniprot/P00519.fasta"
+  },
+
+  "url": "http://www.uniprot.org/uniprot/P00519",
+  "sameAs": "http://identifiers.org/uniprot/P00519",
+
+  "citation": [{
+    "@id": "http://www.identifiers.org/pubmed/10194451",
+    "@type": "ScholarlyArticle",
+    "headline": "A novel SH2-containing ...",
+    "datePublished": "1999-04-15",
+    "sameAs": [
+      "https://www.ncbi.nlm.nih.gov/pubmed/10194451",
+      "http://europepmc.org/abstract/MED/10194451",
+      "http://purl.uniprot.org/citations/10194451"
+    ]
+  },
+    {
+      "@id": "http://www.identifiers.org/pubmed/9037071",
+      "@type": "ScholarlyArticle",
+      "headline": "Regulation of DNA ...",
+      "datePublished": "1997-02-18",
+      "sameAs": [
+        "https://www.ncbi.nlm.nih.gov/pubmed/9037071",
+        "http://europepmc.org/abstract/MED/9037071",
+        "http://purl.uniprot.org/citations/10194451"
+      ]
+    }
+  ],
+
+  "mainEntity": {
+    "@type": ["BioChemEntity", "Protein"],
+    "@id": "http://purl.uniprot.org/isoform/P00519-1",
+
+    "identifier": "P00519-1",
+
+    "name": "ABL1",
+    "alternateName": ["ABL", "JTK7"],
+    "description": "Function: Non-receptor tyrosine-protein kinase that plays a role...",
+
+    "derivesFrom": {
+      "@type": ["BioChemEntity", "Taxon"],
+      "mainEntityOfPage": {
+        "@type": "DataRecord",
+        "@id": "http://purl.uniprot.org/taxonomy/9606"
+      }
+    },
+
+    "associatedWith": {
+      "@type": "MedicalCondition",
+      "mainEntityOfPage": {
+        "@type": "DataRecord",
+        "@id": "http://purl.uniprot.org/diseases/03735"
+      }
+    },
+
+    "transcribedFrom": {
+      "@type": ["BioChemEntity", "Gene"],
+      "identifier": "ABL1",
+      "name": "ABL1"
+    }
+  }
+}
