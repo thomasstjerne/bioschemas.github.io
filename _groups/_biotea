@@ -1,0 +1,64 @@
+---
+layout: group-details
+identifier: Biotea-2-Bioschemas
+name: Biotea-2-Bioschemas
+collection: groups
+active: true
+type: generic
+description: Working group on scholarly publication metadata
+lead:
+    - AlexanderGarcia
+    - LeylaGarcia
+issues: https://github.com/BioSchemas/bioschemas/labels/type%3A%20biotea2bioschemas
+folder: 
+    - https://drive.google.com/drive/folders/1ZnuNXkS8F9MtJQgGSm0tB9RhmbnIydlD
+    - https://drive.google.com/drive/folders/17l84b3yMtVoSTlpbcKYU6tvf92pNOtL0
+    - https://drive.google.com/drive/folders/1FXwieaWwtUEvZrBgqNyXTDZ6ZjNDFKY0
+    - https://drive.google.com/drive/folders/1CgEyta4d7vFfYT7r7w9HtLZ4kAidDmJI
+
+# Progress status
+usecase: https://docs.google.com/document/d/1ZhoYDIx5DP4q1L8k6DAL3EvFuEbTnD7P981Zav_ipuE/
+crosswalk: 
+    - https://docs.google.com/spreadsheets/d/1ecj0bzyRO3tSTyHrKtDGfBwC5bIhgRCmv3yR8ylR_G4/
+    - https://drive.google.com/file/d/10CEyfxbEeRpQYisMi7EOJp4rvLydPOnl/view
+spec-versions: [
+  [
+    {
+      "spec-num": "0.1", "spec-url": "https://docs.google.com/spreadsheets/d/1cRtlx0UPer-qyLoEbynBsNINacAD--6UpJnWg4WLO2g/"
+    }
+  ],
+  [
+    {"spec-num": "0.1", "spec-url": ""
+    }
+  ],
+  [
+    {"spec-num": "0.1", "spec-url": ""
+    }
+  ],
+  [
+    {"spec-num": "0.1", "spec-url": ""
+    }
+  ]
+]
+test: false
+adoption: false
+applications: false
+
+# Page attributes
+abstract: 'Schema.org provides types to model scholarly publications offering a wide range of properties.
+In Bioschemas, we aim to narrow down the number of those properties to facilitate and guide adoption.'
+objectives:
+  [
+    'Define marginality and cardinality for scholarly publications and related types such as journal, publication issue and publication volume',
+    'Recommend some ontologies that can be used as specialized values for some properties'
+  ]
+
+types:
+    [
+      'Journal', 'PublicationIssue', 'PublicationVolume', 'ScholarlyArticle'
+    ]
+
+members:
+    - OlgaXimenaGiraldo
+    - FedericoLópezGómez
+---
