@@ -52,7 +52,7 @@
             </tr>
         </thead>
         <tbody>
-            {% assign  marginality_list = "Minimum,Recommended,Optional" | split: ',' %}
+            {% assign  marginality_list = "Minimum,Recommended,Optional,Not Applicable,Unspecified" | split: ',' %}
             {% for current_mg in marginality_list %}
             {% assign props_list = page.mapping | where: 'marginality', current_mg | sort: 'property' %}
 
