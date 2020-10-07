@@ -8,7 +8,7 @@
 <h1>{{page.name}} <u>DRAFT</u> Profile</h1>
 {% endif %}
 
-<h3><strong>Version:</strong> {{page.version}} ({{page.version_date | date_to_long_string }})</h3>
+<h3><strong>Profile Version:</strong> {{page.version}} ({{page.version_date | date_to_long_string }})</h3>
   <!-- LATEST RELEASES -->
    {% assign profile_versions = site.data.profile_versions[page.name] %}
 
@@ -149,11 +149,13 @@
    </div>
 </section>
 <section id="tab1Content" class="tabs">
-   <!-- Bioschemas <a href="/specifications/">specifications and types list.</a> -->
-   <h3>Schema.org hierarchy</h3>
+   <h3>Schema.org Information</h3>
    <p>The <strong>{{page.name}}</strong> profile is defined over the
      <a href='{{page.type_base_url}}{{page.official_type}}'>{{page.official_type}}</a>
-     type which fits into the type hierarchy as follows:</p>
+     type from Schema.org version {{page.schema_version}}.
+     <a href='{{page.type_base_url}}{{page.official_type}}'>{{page.official_type}}</a>
+     fits into the type hierarchy as follows:</p>
+     <!-- TODO: Update display of hierarchy to use type urls from profile -->
    {%for branch_name in page.hierarchy %}
    <!--
     Type hierarchy should not just take the base url of the type
