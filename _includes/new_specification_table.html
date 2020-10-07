@@ -83,14 +83,15 @@
                 <td>
                     {% for temp_exp_type in prop.expected_types %}
                     {% if temp_exp_type.type_base_url == "https://bioschemas.org/" %}
-                    <a href="{{temp_exp_type.type_base_url}}{{temp_exp_type.type_name}}" class="bioschema" target="_blank">{{temp_exp_type.type_name}}</a><br/>
+                      {% assign type_class="bioschema" %}
                     {% elsif temp_exp_type.type_base_url == "https://schema.org/" %}
-                    <a href="{{temp_exp_type.type_base_url}}{{temp_exp_type.type_name}}" target="_blank">{{temp_exp_type.type_name}}</a><br/>
+                      {% assign type_class="schema" %}
                     {% elsif temp_exp_type.type_base_url == "https://pending.schema.org/" %}
-                    <a href="{{temp_exp_type.type_base_url}}{{temp_exp_type.type_name}}" class="pending" target="_blank">{{temp_exp_type.type_name}}</a><br/>
+                      {% assign type_class="pending" %}
                     {% else %}
-                    <a href="{{temp_exp_type.type_base_url}}{{temp_exp_type.type_name}}" class="external" target="_blank">{{temp_exp_type.type_name}}</a><br/>
+                      {% assign type_class="external" %}
                     {% endif %}
+                    <a href="{{temp_exp_type.type_base_url}}{{temp_exp_type.type_name}}" class="{{type_class}}" target="_blank">{{temp_exp_type.type_name}}</a><br/>
                     {% endfor %}
                 </td>
                 <td class="description-column">
