@@ -56,6 +56,11 @@
             {% for current_mg in marginality_list %}
             {% assign props_list = page.mapping | where: 'marginality', current_mg | sort: 'property' %}
 
+            <!-- Only display Not Applicable and Unspecified in DRAFT mode -->
+            {% if page.status == "RELEASE" and current_mg == "Not Applicable" or current_mg == "Unspecified" %}
+              {% continue %}
+            {% endif %}
+
             {%if props_list.size > 0%}
             <tr class="cardinality">
                 <td colspan="6">
