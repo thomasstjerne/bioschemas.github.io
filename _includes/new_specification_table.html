@@ -72,14 +72,18 @@
             {% for prop in props_list %}
             <tr>
                 {% if prop.type == "bioschemas" %}
-                <td class="property-column"><a href="{{prop.type_url}}" target="_blank" class="bioschema">{{prop.property}}</a></td>
+                <td class="property-column"><a href="{{prop.type_url}}" target="_blank" class="bioschema">{{prop.property}}</a>
                 {% elsif prop.type == "schemas.org" or prop.type == "" %}
-                <td class="property-column"><a href="https://schema.org/{{prop.property}}" target="_blank" class="schemaorg">{{prop.property}}</a></td>
+                <td class="property-column"><a href="https://schema.org/{{prop.property}}" target="_blank" class="schemaorg">{{prop.property}}</a>
                 {% elsif prop.type == "pending" %}
-                <td class="property-column"><a href="https://schema.org/{{prop.property}}" target="_blank" class="pending">{{prop.property}}</a></td>
+                <td class="property-column"><a href="https://schema.org/{{prop.property}}" target="_blank" class="pending">{{prop.property}}</a>
                 {% else %}
-                <td class="property-column"><a href="{{prop.type_url}}" target="_blank" class="external">{{prop.property}}</a></td>
+                <td class="property-column"><a href="{{prop.type_url}}" target="_blank" class="external">{{prop.property}}</a>
                 {% endif %}
+                {% if prop.equivalentProperty != '' %}
+                <br/>Equivalent Property: <a href="{{prop.equivalentProperty}}" target="_blank" class="external">{{prop.equivalentProperty}}</a>
+                {% endif %}
+                </td>
                 <td>
                     {% for temp_exp_type in prop.expected_types %}
                     {% if temp_exp_type.type_base_url == "https://bioschemas.org/" %}
