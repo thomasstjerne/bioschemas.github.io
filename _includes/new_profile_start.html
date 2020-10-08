@@ -155,17 +155,13 @@
      type from Schema.org <a href="https://schema.org/version/{{page.schema_version}}">version {{page.schema_version}}</a>.
      <a href='{{page.type_base_url}}{{page.official_type}}'>{{page.official_type}}</a>
      fits into the type hierarchy as follows:</p>
-     <!-- TODO: Update display of hierarchy to use type urls from profile -->
-   {%for branch_name in page.hierarchy %}
-   <!--
-    Type hierarchy should not just take the base url of the type
-    Going to need this to be stored in the profile yaml
-   -->
-   <a href="{{page.type_base_url}}{{branch_name}}/">{{branch_name}}</a>
+   {%for type in page.hierarchy %}
+   <a href="{{type.type_base_url}}{{type.type_name}}/">{{type.type_name}}</a>
    {%if forloop.index < page.hierarchy.size%}
    &gt;
    {%endif%}
    {%endfor%}
+   <!-- TODO: Need to fix the following code if we update for type display -->
    {%if page.spec_type == 'Type'%}
    &gt;
    <a href="#">{{page.name}}</a>
