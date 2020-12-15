@@ -1081,4 +1081,24 @@ list:
   bsc_ver: 0.4-DRAFT
   comments:
   node: DK, FR, ES
+-
+  name: OMA Browser
+  highlight:
+  example_URL: https://omabrowser.org
+  resource_URL: https://omabrowser.org
+  schema_org: DataCatalog
+  bsc_profile: DataCatalog
+  bsc_ver: 0.3
+  comments:
+  node: CH
+-
+  name: OMA Browser
+  highlight:
+  example_URL: https://omabrowser.org
+  resource_URL: https://omabrowser.org
+  schema_org: Dataset
+  bsc_profile: Dataset
+  bsc_ver: 0.3
+  comments:
+  node: CH
 ---
